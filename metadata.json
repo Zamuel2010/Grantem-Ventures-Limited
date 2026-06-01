@@ -1,0 +1,8 @@
+{
+  "name": "Gratem Ventures Landing Page",
+  "description": "A premium landing page for Gratem Ventures Limited, offering Printing, Import & Export, and General Trading services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

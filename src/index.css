@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, system-ui, serif;
+  
+  /* Deep Crimson Primary */
+  --color-primary-50: #fdf2f2;
+  --color-primary-100: #fbe5e5;
+  --color-primary-500: #d03939;
+  --color-primary-600: #b92626;
+  --color-primary-700: #990000;
+  --color-primary-800: #7a0000;
+  --color-primary-900: #660000;
+
+  /* Accents */
+  --color-accent-gold: #D4AF37;
+  --color-accent-black: #0a0a0a;
+}
+
+@layer base {
+  .dark {
+    --color-gray-950: #000000;
+    --color-gray-900: #0a0a0a;
+    --color-gray-800: #171717;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: auto; /* Or let App.tsx handle it */
+  }
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
