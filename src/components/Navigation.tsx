@@ -39,15 +39,12 @@ export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
       id: 'services', 
       label: 'Services',
       subItems: [
-        { id: 'services-printing', label: 'Printing Business' },
-        { id: 'services-import-export', label: 'Import and Export' },
-        { id: 'services-tyres', label: 'Importation of Tyres' },
-        { id: 'services-batteries', label: 'Importation of Batteries' },
-        { id: 'services-solar', label: 'Lights, Batteries, and Inverters' },
-        { id: 'services-printing-materials', label: 'Importation of Printing Materials' },
-        { id: 'services-accessories', label: 'Phone Accessories' },
-        { id: 'services-general-business', label: 'General Business' },
+        { id: 'services-printing', label: 'Printing Services' },
+        { id: 'services-import-export', label: 'Import & Export' },
+        { id: 'services-solar', label: 'Solar Products' },
+        { id: 'services-tyres-batteries', label: 'Tyres & Batteries' },
         { id: 'services-farm', label: 'Farm Produce' },
+        { id: 'services-accessories', label: 'Phone Accessories' },
       ]
     },
     { id: 'gallery', label: 'Gallery' },
@@ -62,12 +59,12 @@ export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 h-[72px] transition-all duration-300 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 ${scrolled ? 'bg-white dark:bg-gray-950 shadow-md border-b border-gray-100 dark:border-gray-800' : 'bg-white dark:bg-gray-950 shadow-sm border-b border-transparent dark:border-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 h-[72px] transition-all duration-300 z-50 flex items-center justify-between px-4 sm:px-6 lg:px-8 ${scrolled ? 'bg-white/80 dark:bg-gray-950/80 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-gray-800/50' : 'bg-transparent border-b border-transparent'}`}>
       <div className="flex items-center gap-2 cursor-pointer" onClick={() => handleNavClick('home')}>
-        <div className="w-6 h-6 bg-primary-700 dark:bg-primary-600 rounded-sm transform rotate-45 flex items-center justify-center">
+        <div className="w-6 h-6 bg-primary-700 dark:bg-primary-600 rounded-sm transform rotate-45 flex items-center justify-center shadow-lg">
           <div className="w-3 h-3 bg-white transform -rotate-45" />
         </div>
-        <span className="font-display font-extrabold text-[18px] sm:text-xl text-accent-black dark:text-white tracking-tight">
+        <span className="font-display font-extrabold text-[18px] sm:text-xl text-accent-black dark:text-white tracking-tight drop-shadow-sm">
           gratem<span className="text-primary-700 dark:text-primary-500 font-medium">ventures</span>
         </span>
       </div>
@@ -92,13 +89,13 @@ export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
             </button>
             
             {item.subItems && servicesOpen && (
-              <div className="absolute top-[68px] left-0 bg-white dark:bg-gray-900 shadow-xl border border-gray-100 dark:border-gray-800 rounded-xl py-2 min-w-[240px] flex flex-col z-50 animate-in fade-in slide-in-from-top-2">
+              <div className="absolute top-[68px] left-0 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] border border-gray-200/50 dark:border-gray-800/50 rounded-2xl py-3 min-w-[260px] flex flex-col z-50 animate-in fade-in slide-in-from-top-2">
                 {item.subItems.map(sub => (
                   <button
                     key={sub.id}
                     onClick={() => handleNavClick(sub.id)}
-                    className={`text-left px-5 py-3 text-[14px] font-semibold transition-colors hover:bg-gray-50 dark:hover:bg-gray-800 ${
-                      currentPage === sub.id ? 'text-primary-700 dark:text-primary-400' : 'text-gray-600 dark:text-gray-300 hover:text-primary-700 dark:hover:text-primary-300'
+                    className={`text-left px-6 py-2.5 text-[14px] font-semibold transition-all hover:bg-gray-50/80 dark:hover:bg-gray-800/80 hover:pl-7 ${
+                      currentPage === sub.id ? 'text-primary-700 dark:text-primary-400 pl-7' : 'text-gray-600 dark:text-gray-300 hover:text-primary-700 dark:hover:text-primary-300'
                     }`}
                   >
                     {sub.label}
@@ -132,8 +129,13 @@ export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="absolute top-[72px] left-0 right-0 bg-white dark:bg-gray-950 shadow-xl border-t border-gray-50 dark:border-gray-800 flex flex-col p-4 md:hidden overflow-y-auto max-h-[calc(100vh-72px)]">
-           {navItems.map(item => (
+        <>
+          <div 
+            className="fixed inset-0 top-[72px] bg-black/20 dark:bg-black/60 backdrop-blur-md z-40 md:hidden"
+            onClick={() => setIsMobileMenuOpen(false)}
+          />
+          <div className="absolute top-[72px] left-0 right-0 bg-white dark:bg-gray-950 shadow-xl border-t border-gray-50 dark:border-gray-800 flex flex-col p-4 md:hidden overflow-y-auto max-h-[calc(100vh-72px)] z-50">
+            {navItems.map(item => (
              <div key={item.id} className="flex flex-col border-b border-gray-50 dark:border-gray-800">
                <div className="flex items-center justify-between">
                  <button
@@ -173,6 +175,7 @@ export function Navigation({ currentPage, setCurrentPage }: NavigationProps) {
              0802 707 4837
            </a>
         </div>
+        </>
       )}
     </header>
   );

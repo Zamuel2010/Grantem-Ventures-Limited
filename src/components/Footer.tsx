@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 interface FooterProps {
   setCurrentPage: (page: string) => void;
@@ -20,6 +21,9 @@ export function Footer({ setCurrentPage }: FooterProps) {
           <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm">
             A premier business enterprise providing top-notch corporate services, trade logistics, and printing solutions in Nigeria.
           </p>
+          <a href="https://wa.me/2348027074837" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-[#25D366] hover:text-[#25D366] font-medium mt-2 bg-[#25D366]/10 px-4 py-2 rounded-lg border border-[#25D366]/20 transition-colors">
+            <WhatsAppIcon className="w-4 h-4" /> Message on WhatsApp
+          </a>
         </div>
 
         <div>

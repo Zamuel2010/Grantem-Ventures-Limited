@@ -23,8 +23,8 @@ export default function App() {
         {currentPage === 'home' && <Home setCurrentPage={setCurrentPage} />}
         {currentPage === 'about' && <About setCurrentPage={setCurrentPage} />}
         {currentPage.startsWith('services') && <Services subPage={currentPage} setCurrentPage={setCurrentPage} />}
-        {currentPage === 'gallery' && <Gallery />}
-        {currentPage === 'contact' && <Contact />}
+        {currentPage === 'gallery' && <Gallery setCurrentPage={setCurrentPage} />}
+        {currentPage === 'contact' && <Contact setCurrentPage={setCurrentPage} />}
       </main>
 
       <Footer setCurrentPage={setCurrentPage} />
